@@ -1,0 +1,106 @@
+---
+title: "Price and Volatility Analysis"
+author: "Avangrid Renewables Risk Management Group"
+output: html_document
+---
+
+```{r setup, include=FALSE,results='hide', message=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+
+
+
+library(tidyverse)
+library(tidyquant)
+library(gridExtra)
+library(knitr)
+
+path <- "P:/R_Dev/Price_Related/Function_Files/"
+source(paste0(path,"plotFunctionsv2.R"))
+source(paste0(path,"grpDataPrepFunctions.R"))
+
+setwd("P:/R_Dev/Price_Related")
+
+```
+
+
+```{r echo=FALSE, message=FALSE, results='hide'}
+
+setwd("P:/R_Dev/Price_Related")
+
+qtr <- vqtr
+hub <- "MINN_H"
+mn <- vmn
+mn1 <- vmn1
+
+qt_p <- quarterlyPriceData(dt, qtr, hub)
+qtpret <- qt_peakReturnData(qt_p)
+qtopret <- qt_offpeakReturnData(qt_p)
+qpv <- qt_peakVolData(qtpret, 30, 252)
+qopv <- qt_offpeakVolData(qtopret, 30, 252)
+
+mn_p <- monthlyPriceData(dt, mn, hub)
+mnpr <- mn_peakReturnData(mn_p)
+mnopr<- mn_OffpeakReturnData(mn_p)
+mnpv <- mn_peakVolData(mnpr, 30, 252)
+mnopv <- mn_OffpeakVolData(mnopr, 30, 252)
+                                  
+mn_p1 <- monthlyPriceData(dt, mn1, hub)
+mnpr1 <- mn_peakReturnData(mn_p1)
+mnopr1<- mn_OffpeakReturnData(mn_p1)
+mnpv1 <- mn_peakVolData(mnpr1, 30, 252)
+mnopv1 <- mn_OffpeakVolData(mnopr1, 30, 252)
+
+
+
+```
+
+#
+#
+#
+
+#### MISO MINN Hub Prompt Month Price and Volatility Curves
+                                  
+```{r Prompt_Month, echo=FALSE, message=FALSE,results='markup',fig.align='left',fig.width=10}
+
+mnpeakplot <- mn_peakPrcPlot(mn_p, mn, hub)
+mnoffpeakplot <- mn_offpeakPrcPlot(mn_p, mn, hub)
+mnpeakvolplot <- mn_peakVolPlot(mnpv, mn,hub)
+mnoffpeakvolplot <- mn_offpeakVolPlot(mnopv, mn, hub)
+
+grid.arrange(mnpeakplot, mnoffpeakplot, ncol =2)
+grid.arrange(mnpeakvolplot, mnoffpeakvolplot, ncol = 2)
+
+```
+
+#### MISO MINN Hub Prompt + 1 Month Price and Volatility Curves
+
+```{r Prompt_Plus, echo=FALSE, message=FALSE,results='markup',fig.align='left',fig.width=10}
+
+mnpeakplot1 <- mn_peakPrcPlot(mn_p1, mn1, hub)
+mnoffpeakplot1 <- mn_offpeakPrcPlot(mn_p1, mn1, hub)
+mnpeakvolplot1 <- mn_peakVolPlot(mnpv1, mn1,hub)
+mnoffpeakvolplot1 <- mn_offpeakVolPlot(mnopv1, mn1, hub)
+
+grid.arrange(mnpeakplot1, mnoffpeakplot1, ncol = 2)
+grid.arrange(mnpeakvolplot1, mnoffpeakvolplot1, ncol = 2)
+
+
+
+```
+
+#### MISO MINN Hub Quarterly Strip Price and Volatility Curves
+
+```{r Quarterly, echo=FALSE, message=FALSE,results='markup',fig.align='left',fig.width=10}
+
+qtpeakplot <- qt_peakPrcPlot(qt_p, qtr, hub)
+qtoffpeakplot <- qt_offpeakPrcPlot(qt_p, qtr, hub)
+qtpeakvolplot <- qt_peakVolPlot(qpv, qtr,hub)
+qtoffpeakvolplot <- mn_offpeakVolPlot(qopv, qtr, hub)
+
+grid.arrange(qtpeakplot, qtoffpeakplot, ncol = 2)
+grid.arrange(qtpeakvolplot, qtoffpeakvolplot, ncol = 2)
+
+
+
+```
