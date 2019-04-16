@@ -1,5 +1,5 @@
 ---
-title: "Price and Volatility Analysis"
+title: "Price Trends"
 author: "Avangrid Renewables Risk Management Group"
 output: html_document
 ---
@@ -64,11 +64,13 @@ mnopv1 <- mn_OffpeakVolData(mnopr1, 30, 252)
 ```{r Prompt_Month, echo=FALSE, message=FALSE,results='markup',fig.align='left',fig.width=10}
 
 mnpeakplot <- mn_peakPrcPlot(mn_p, mn, hub)
+mnoffpeakplot <- mn_offpeakPrcPlot(mn_p, mn, hub)
 mnpeakvolplot <- mn_peakVolPlot(mnpv, mn,hub)
 mnoffpeakvolplot <- mn_offpeakVolPlot(mnopv, mn, hub)
 
 grid.arrange(mnpeakplot, mnoffpeakplot, ncol =2)
 #grid.arrange(mnpeakvolplot, mnoffpeakvolplot, ncol = 2)
+
 
 ```
 
@@ -77,10 +79,13 @@ grid.arrange(mnpeakplot, mnoffpeakplot, ncol =2)
 ```{r Prompt_Plus, echo=FALSE, message=FALSE,results='markup',fig.align='left',fig.width=10}
 
 mnpeakplot1 <- mn_peakPrcPlot(mn_p1, mn1, hub)
+mnoffpeakplot1 <- mn_offpeakPrcPlot(mn_p1, mn1, hub)
 mnpeakvolplot1 <- mn_peakVolPlot(mnpv1, mn1,hub)
 mnoffpeakvolplot1 <- mn_offpeakVolPlot(mnopv1, mn1, hub)
 
 grid.arrange(mnpeakplot1, mnoffpeakplot1, ncol = 2)
+#grid.arrange(mnpeakvolplot1, mnoffpeakvolplot1, ncol = 2)
+
 
 ```
 
@@ -89,9 +94,11 @@ grid.arrange(mnpeakplot1, mnoffpeakplot1, ncol = 2)
 ```{r Quarterly, echo=FALSE, message=FALSE,results='markup',fig.align='left',fig.width=10}
 
 qtpeakplot <- qt_peakPrcPlot(qt_p, qtr, hub)
+qtoffpeakplot <- qt_offpeakPrcPlot(qt_p, qtr, hub)
 qtpeakvolplot <- qt_peakVolPlot(qpv, qtr,hub)
 qtoffpeakvolplot <- mn_offpeakVolPlot(qopv, qtr, hub)
 
 grid.arrange(qtpeakplot, qtoffpeakplot, ncol = 2)
+#grid.arrange(qtpeakvolplot, qtoffpeakvolplot, ncol = 2)
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: "Price and Volatility Analysis"
+title: "Price Trends"
 author: "Avangrid Renewables Risk Management Group"
 output: html_document
 ---
@@ -70,6 +70,7 @@ mnpeakvolplot <- mn_peakVolPlot(mnpv, mn,hub)
 mnoffpeakvolplot <- mn_offpeakVolPlot(mnopv, mn, hub)
 
 grid.arrange(mnpeakplot, mnoffpeakplot, ncol =2)
+#grid.arrange(mnpeakvolplot, mnoffpeakvolplot, ncol = 2)
 
 ```
 
@@ -83,6 +84,7 @@ mnpeakvolplot1 <- mn_peakVolPlot(mnpv1, mn1,hub)
 mnoffpeakvolplot1 <- mn_offpeakVolPlot(mnopv1, mn1, hub)
 
 grid.arrange(mnpeakplot1, mnoffpeakplot1, ncol = 2)
+#grid.arrange(mnpeakvolplot1, mnoffpeakvolplot1, ncol = 2)
 
 
 
@@ -98,6 +100,7 @@ qtpeakvolplot <- qt_peakVolPlot(qpv, qtr,hub)
 qtoffpeakvolplot <- mn_offpeakVolPlot(qopv, qtr, hub)
 
 grid.arrange(qtpeakplot, qtoffpeakplot, ncol = 2)
+#grid.arrange(qtpeakvolplot, qtoffpeakvolplot, ncol = 2)
 
 
 
