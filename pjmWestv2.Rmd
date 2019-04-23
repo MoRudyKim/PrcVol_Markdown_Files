@@ -15,18 +15,18 @@ library(tidyquant)
 library(gridExtra)
 library(knitr)
 
-path <- "P:/R_Dev/Price_Related/Function_Files/"
+path <- "D:/RScripts/Price_Related/Function_Files/"
 source(paste0(path,"plotFunctionsv2.R"))
 source(paste0(path,"grpDataPrepFunctions.R"))
 
-setwd("P:/R_Dev/Price_Related")
+setwd("D:/RScripts/Price_Related")
 
 ```
 
 
 ```{r echo=FALSE, message=FALSE, results='hide'}
 
-setwd("P:/R_Dev/Price_Related")
+setwd("D:/RScripts/Price_Related")
 
 qtr <- vqtr
 hub <- "WEST_H"

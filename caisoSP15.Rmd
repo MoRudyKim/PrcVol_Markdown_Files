@@ -1,5 +1,5 @@
 ---
-title: "Price Trends"
+title: "Price and Volatility Analysis"
 author: "Avangrid Renewables Risk Management Group"
 output: html_document
 ---
@@ -19,7 +19,7 @@ path <- "D:/RScripts/Price_Related/Function_Files/"
 source(paste0(path,"plotFunctionsv2.R"))
 source(paste0(path,"grpDataPrepFunctions.R"))
 
-setwd("D:/RScripts/Price_Related")
+
 
 ```
 
@@ -29,7 +29,7 @@ setwd("D:/RScripts/Price_Related")
 setwd("D:/RScripts/Price_Related")
 
 qtr <- vqtr
-hub <- "SOUZ_H"
+hub <- "SP15"
 mn <- vmn
 mn1 <- vmn1
 
@@ -59,7 +59,7 @@ mnopv1 <- mn_OffpeakVolData(mnopr1, 30, 252)
 #
 #
 
-#### ERCOT South Hub Prompt Month Price and Volatility Curves
+#### SP15 Prompt Month Price and Volatility Curves
                                   
 ```{r Prompt_Month, echo=FALSE, message=FALSE,results='markup',fig.align='left',fig.width=10}
 
@@ -71,9 +71,10 @@ mnoffpeakvolplot <- mn_offpeakVolPlot(mnopv, mn, hub)
 grid.arrange(mnpeakplot, mnoffpeakplot, ncol =2)
 #grid.arrange(mnpeakvolplot, mnoffpeakvolplot, ncol = 2)
 
+
 ```
 
-#### ERCOT South Hub Prompt + 1 Month Price and Volatility Curves
+#### SP15 Prompt + 1 Month Price and Volatility Curves
 
 ```{r Prompt_Plus, echo=FALSE, message=FALSE,results='markup',fig.align='left',fig.width=10}
 
@@ -86,10 +87,9 @@ grid.arrange(mnpeakplot1, mnoffpeakplot1, ncol = 2)
 #grid.arrange(mnpeakvolplot1, mnoffpeakvolplot1, ncol = 2)
 
 
-
 ```
 
-#### ERCOT South Hub Quarterly Strip Price and Volatility Curves
+#### SP15 Quarterly Strip Price and Volatility Curves
 
 ```{r Quarterly, echo=FALSE, message=FALSE,results='markup',fig.align='left',fig.width=10}
 
@@ -100,7 +100,5 @@ qtoffpeakvolplot <- mn_offpeakVolPlot(qopv, qtr, hub)
 
 grid.arrange(qtpeakplot, qtoffpeakplot, ncol = 2)
 #grid.arrange(qtpeakvolplot, qtoffpeakvolplot, ncol = 2)
-
-
 
 ```
