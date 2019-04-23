@@ -1,5 +1,5 @@
 ---
-title: "Price Trends"
+title: "Price and Volatility Analysis"
 author: "Avangrid Renewables Risk Management Group"
 output: html_document
 ---
