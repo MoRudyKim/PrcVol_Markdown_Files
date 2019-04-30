@@ -1,7 +1,7 @@
 ---
 title: "Price Trends"
 author: "Avangrid Renewables Risk Management Group"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE,results='hide', message=FALSE}
@@ -15,18 +15,18 @@ library(tidyquant)
 library(gridExtra)
 library(knitr)
 
-path <- "D:/RScripts/Price_Related/Function_Files/"
+path <- "P:/R_Dev/Price_Related/Function_Files/"
 source(paste0(path,"plotFunctionsv2.R"))
 source(paste0(path,"grpDataPrepFunctions.R"))
 
-setwd("D:/RScripts/Price_Related")
+setwd("P:/R_Dev/Price_Related")
 
 ```
 
 
 ```{r echo=FALSE, message=FALSE, results='hide'}
 
-setwd("D:/RScripts/Price_Related")
+setwd("P:/R_Dev/Price_Related")
 
 qtr <- vqtr
 hub <- "WEST_H"
